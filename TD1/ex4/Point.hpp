@@ -11,7 +11,7 @@ class Point
 		~Point();
 		float getX(), getY();
 		void afficher();
-		void cloner(const Point& p);
+		void cloner(const Point &p);
 };
 
 #endif
