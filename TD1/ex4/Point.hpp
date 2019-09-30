@@ -3,14 +3,15 @@
 
 class Point
 {
-	public:
-		float x,y;
+	float x,y;
+	public:	
 		Point();
 		Point(float x, float y);
-		Point(Point &p);
+		Point(const Point &p);
 		~Point();
+		float getX(), getY();
 		void afficher();
-		void cloner(const Point &p);
+		void cloner(const Point& p);
 };
 
 #endif

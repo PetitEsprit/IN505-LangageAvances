@@ -2,8 +2,7 @@
 
 int main()
 {
-	Point *p = new Point(3,5);
-	p->afficher();
-	delete p;
+	Point p(3,5);
+	p.afficher();
 	return 0;
 }
