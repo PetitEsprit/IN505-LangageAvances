@@ -1,34 +1,25 @@
 #include <iostream>
 #include <cmath>
+#include "Segment.hpp"
 
-class Segment
-{
-	public:
-		float x1, y1, x2, y2;
-		Segment() : x1(0), y1(0), x2(0), y2(0){}
-		Segment(float x1, float y1, float x2, float y2) : x1(x1),y1(y1),x2(x2),y2(y2){}
-		~Segment(){std::cout << "\nappel au destructeur\n";}
-		void afficher()
-		{
-			std::cout << "p1: (" << x1 << ", " << y1 << ")\n";
-			std::cout << "p2: (" << x2 << ", " << y2 << ")\n";
-		}
-		float longueur()
-		{
-			float xx,yy;
-			xx = x2-x1; yy = y2-y1; 
-			return sqrt(xx*xx + yy*yy);
-		}
-		bool estVertical(){return y1 == y2;}
-		bool estHorizontal(){return x1 == x2;}
-		bool estSurDiagonale(){return x1 != x2 && y1 != y2;}
-};
+Segment::Segment() : p1(), p2() {}
+Segment::Segment(const Point& p1, const Point& p2) : p1(p1), p2(p2) {}
+Segment::Segment(const Segment& s) : p1(s.p1), p2(s.p2){}
+Segment::~Segment(){std::cout << "\nappel au destructeur du Segment\n";}
 
-int main()
+void Segment::afficher()
 {
-	Segment s(1,2,1,4);
-	s.afficher();
-	std::cout << s.estHorizontal();
-	std::cout << "\n" << s.longueur();
-	return 0;
+	std::cout << "p1: (" << p1.getX() << ", " << p1.getY() << ")\n";
+	std::cout << "p2: (" << p2.getX() << ", " << p2.getY() << ")\n";
 }
+
+float Segment::longueur()
+{
+	float xx,yy;
+	xx = p2.getX() - p1.getX(); yy = p2.getY() - p1.getY(); 
+	return sqrt(xx*xx + yy*yy);
+}
+
+bool Segment::estVertical(){return p1.getY() == p2.getY();}
+bool Segment::estHorizontal(){return p1.getX() == p2.getX();}
+bool Segment::estSurDiagonale(){return p1.getY() != p2.getY() && p1.getX() == p2.getX();}
