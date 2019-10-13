@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 class CString
 {
 	int size;
@@ -22,8 +24,8 @@ class CString
 	static int getNbString();
 	char* getString();
 	CString& operator=(CString &cs);
+	CString& operator+(char c);
 	char& operator[](unsigned int i);
 	friend ostream& operator<<(ostream &flux, CString const& ch);
-	friend ostream& operator>>(ostream &flux, CString const& ch);
 };
 #endif

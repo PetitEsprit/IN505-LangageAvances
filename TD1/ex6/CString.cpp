@@ -3,9 +3,15 @@
 #include <stdlib.h>
 #include <iostream>
 
+
 int CString::nbstring = 0;
 
-CString::CString() : size(0), ptr(nullptr) {CString::nbstring++;}
+CString::CString() : size(0)
+{
+	CString::nbstring++;
+	ptr = (char*)malloc(1);
+	ptr[0] = '\0';
+}
 CString::CString(char c) : size(1)
 {
 	CString::nbstring++;
@@ -55,11 +61,41 @@ bool CString::infOuEgale(CString &cs)
 
 CString& CString::plus(char c)
 {
-	int len = this->getSize() + 1;
-	char buf[len+1];
-	strcpy(buf, this->getString());
-	buf[len-1] = c; buf[len] = '\0';
-	return *(new CString(buf));
+	size++;
+	int len = size + 1;
+	ptr = (char*)realloc(ptr, len);
+	ptr[size-1] = c; ptr[size] = '\0';
+	return *this;
+}
+
+CString& CString::operator=(CString &cs)
+{
+	if(this != &cs)
+	{
+		free(ptr);
+		size = cs.getSize();
+		ptr = (char*)malloc(size+1);
+		strcpy(ptr, cs.getString());
+		ptr[size] = '\0';
+	}
+	return *this;
+}
+
+CString& CString::operator+(char c)
+{
+	return CString::plus(c);
+}
+
+char& CString::operator[](unsigned int i)
+{
+	int ii = (i < size) ? i : size;
+	return ptr[ii];
+}
+
+ostream& operator<<(ostream &flux, CString const& ch)
+{
+	flux << ch.ptr <<endl;
+	return flux;
 }
 
 int CString::getSize() { return size;}
