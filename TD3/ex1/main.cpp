@@ -3,6 +3,7 @@
 int main()
 {
 	Point p(3,5);
-	p.afficher();
+	PointColor pc(3,4,10), pcc(pc);
+	pcc.afficher();
 	return 0;
 }

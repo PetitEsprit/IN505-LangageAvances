@@ -15,4 +15,17 @@ class Point
 		void cloner(const Point &p);
 };
 
+class PointColor : public Point
+{
+	private:
+		int color;
+	public:
+		PointColor(float x = 0, float y = 0, int c = 0);
+		PointColor();
+		PointColor(const PointColor& pc);
+		void afficher();
+		int getColor() const;
+		~PointColor();
+};
+
 #endif
