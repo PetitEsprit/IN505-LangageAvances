@@ -1,7 +1,7 @@
 #ifndef _FORME_H
 #define _FORME_H
 
-#include "../ex1/Point.hpp"
+#include "Point.hpp"
 
 class Forme
 {
@@ -12,6 +12,7 @@ class Forme
 		virtual void afficher() = 0;
 		void deplacer(float dx, float dy);
 		Point getOrig();
+		virtual ~Forme();
 };
 
 #endif 

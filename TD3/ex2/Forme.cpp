@@ -9,3 +9,4 @@ void Forme::deplacer(float dx, float dy)
 	orig.cloner(p);
 }
 Point Forme::getOrig(){return orig;}
+Forme::~Forme(){}

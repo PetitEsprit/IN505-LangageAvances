@@ -2,7 +2,7 @@
 #define _CERCLE_H
 
 #include "Forme.hpp"
-#include "../ex1/Point.hpp"
+#include "Point.hpp"
 
 class Cercle : public Forme
 {

@@ -1,4 +1,6 @@
 #include "Forme.hpp"
+#include "Segment.hpp"
+#include "Cercle.hpp"
 
 int main()
 {

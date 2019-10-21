@@ -2,7 +2,7 @@
 #define _SEGMENT_H
 
 #include "Forme.hpp"
-#include "../ex1/Point.hpp"
+#include "Point.hpp"
 
 class Segment : public Forme
 {

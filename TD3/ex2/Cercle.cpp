@@ -1,13 +1,10 @@
-#ifndef _CERCLE_H
-#define _CERCLE_H
-
 #include <iostream>
 #include "Cercle.hpp"
 
-Cercle::Cercle() : rayon(), rad(0) {}
+Cercle::Cercle() : mid(), r(0) {}
 Cercle::Cercle(const Point& p, const float rad, const Point& orig) : mid(p), r(rad), Forme(orig) {}
-Cercle::Cercle(const Cercle& c, const Point& orig) : mid(c.mid), r(rad), Forme(orig) {}
-Cercle::~Cercle(){}
+Cercle::Cercle(const Cercle& c, const Point& orig) : mid(c.mid), Forme(orig) {}
+Cercle::~Cercle(){ Forme::~Forme();}
 void Cercle::afficher()
 {
 	float dx = Forme::getOrig().getX();
@@ -15,4 +12,3 @@ void Cercle::afficher()
 	std::cout << "mid: (" << mid.getX() + dx << ", " << mid.getY() + dy << ")\n";
 }
 
-#endif 
