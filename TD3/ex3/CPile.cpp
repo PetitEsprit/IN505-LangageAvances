@@ -2,7 +2,7 @@
 
 CPile::CPile() : CList() {}
 
-CPile& CPile::operator <(int n)
+CPile& CPile::operator<(int n)
 {
 	elem *tmp = new_node(n);
 	if(node != nullptr)
@@ -10,9 +10,7 @@ CPile& CPile::operator <(int n)
 		tmp->next = node;	
 	}
 	node = tmp;
+	size++;
 }
 
-CPile::~CPile()
-{
-	
-}
+CPile::~CPile(){cout << "Destruction de la CPile" << endl;}

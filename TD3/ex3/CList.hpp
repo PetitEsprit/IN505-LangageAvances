@@ -15,13 +15,17 @@ elem *new_node(int n);
 void free_node(elem *e);
 
 class CList
-{
+{		
 	protected:
 		elem *node;
+		int size;
 	public:
 		CList();
-		virtual CList& operator <(int n) = 0;
-		int operator >(int &n);
+		CList(CList& l);
+		int getSize();
+		int getVal(int i);
+		virtual CList& operator<(int n) = 0;
+		virtual void operator>(int &n);
 		friend ostream& operator<<(ostream& flux, const CList& cl);
 		~CList();
 };

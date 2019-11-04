@@ -15,27 +15,48 @@ void free_node(elem *e)
 	free(e);
 }
 
-CList::CList() : node(nullptr) {}
+CList::CList() : node(nullptr), size() {}
+
+CList::CList(CList& l)
+{
+	int s = l.getSize();
+	for(int i=0; i<size;i++)
+	{
+		node = new_node(l.getVal(i));
+		node = node->next;
+	}
+}
 
 CList::~CList()
 {
 	if(node != nullptr) free_node(node);
 }
 
-int CList::operator >(int &n)
+int CList::getSize(){return size;}
+
+int CList::getVal(int i)
 {
-	n = node->val;
-	return n;
+	elem* tmp = node;
+	for(int j=0; j<i; j++)
+		tmp = tmp->next;
+	return tmp->val;
+}
+
+void CList::operator>(int &n)
+{
+	if(node != nullptr)
+		n = node->val;
 }
 
 ostream& operator<<(ostream& flux, const CList& cl)
 {
 	elem* ptr = cl.node;
-	while(ptr->next != nullptr)
+	flux << "la Liste est ( ";
+	while(ptr != nullptr)
 	{
-		flux << ptr->val << ";";
+		flux << ptr->val << " ";
 		ptr = ptr->next;
 	}
-	flux << ptr->val << endl;
+	flux << ")" << endl;
 	return flux;
 }

@@ -9,7 +9,7 @@ class CPile : public CList
 {
 	public:
 		CPile();
-		CPile& operator <(int n);
+		CPile& operator<(int n);
 		~CPile();
 };
 

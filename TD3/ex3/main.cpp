@@ -3,10 +3,10 @@
 int main()
 {
 	CPile cp;
-	int i;
-	cp < 3 < 1 < 4 < 5 < 6;
-	cp > i;
+	cp < 8 < 4 < 5 < 9;
+	CPile cpp(cp);
 	cout << cp;
-	cout << "i: " << i << endl;
+	cout << cpp;
+	//cout << "3: " << cp.getVal(0) << endl;
 	return 0;
 }
