@@ -19,11 +19,15 @@ CList::CList() : node(nullptr), size() {}
 
 CList::CList(CList& l)
 {
+	if (node) delete node;
+	elem *curr = node;
+	elem *next = curr;
 	int s = l.getSize();
 	for(int i=0; i<size;i++)
 	{
-		node = new_node(l.getVal(i));
-		node = node->next;
+		next = new_node(l.getVal(i));
+		node->next = next;
+		/*à continuer*/
 	}
 }
 
