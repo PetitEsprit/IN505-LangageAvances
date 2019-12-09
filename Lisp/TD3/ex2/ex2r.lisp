@@ -6,7 +6,10 @@
 	)
 )
 
-(defun remdupl (l)
-
-	
+;;remove ducplicate
+(defun remdupl (l &optional(res ()))
+	(if(null l)
+		res
+		(remdupl (remove (car l) l) (cons (car l) res))
+	)
 )
